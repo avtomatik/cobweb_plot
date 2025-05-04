@@ -10,7 +10,7 @@ Created on Fri Mar 11 22:17:06 2022
 import numpy as np
 
 from dataset import make_dataset
-from plot import visualize
+from plots import make_plot
 
 
 def main() -> None:
@@ -24,8 +24,11 @@ def main() -> None:
 
     """
     df = make_dataset()
-    x_lin = np.linspace(df.iloc[:, [-1]].min(), df.iloc[:, [-1]].max(), 100)
-    df.pipe(visualize, x_lin)
+
+    last_column = df.iloc[:, [-1]]
+    x_lin = np.linspace(last_column.min(), last_column.max(), 100)
+
+    df.pipe(make_plot, x_lin)
 
 
 if __name__ == '__main__':
