@@ -1,10 +1,11 @@
-from pathlib import Path
 
 import pandas as pd
 
+from config import DATA_DIR
+
 
 def read(
-    path_src: str = '../data',
+    path_src: str = DATA_DIR,
     file_name: str = 'dataset_usa_0025_p_r.txt'
 ) -> pd.DataFrame:
     """
@@ -23,7 +24,7 @@ def read(
         ================== =================================.
     """
     kwargs = {
-        'filepath_or_buffer': Path(path_src).joinpath(file_name),
+        'filepath_or_buffer': DATA_DIR.joinpath(file_name),
         'index_col': 0,
     }
     return pd.read_csv(**kwargs)

@@ -8,13 +8,15 @@ Created on Fri Mar 11 22:17:06 2022
 
 
 import numpy as np
+
+from config import DATA_DIR
 from plot import visualize
 from read import read
 from transform import preprocess
 
 
 def main(
-    path_src: str = '../data',
+    path_src: str = DATA_DIR,
     file_name: str = 'dataset_usa_0025_p_r.txt'
 ) -> None:
     """
