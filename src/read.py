@@ -1,12 +1,12 @@
 
 import pandas as pd
 
-from config import DATA_DIR
+from config import DATA_DIR, FILE_NAME
 
 
 def read(
     path_src: str = DATA_DIR,
-    file_name: str = 'dataset_usa_0025_p_r.txt'
+    file_name: str = FILE_NAME
 ) -> pd.DataFrame:
     """
     Parameters
@@ -23,8 +23,5 @@ def read(
         df.iloc[:, 0]      Series
         ================== =================================.
     """
-    kwargs = {
-        'filepath_or_buffer': DATA_DIR.joinpath(file_name),
-        'index_col': 0,
-    }
-    return pd.read_csv(**kwargs)
+    file_path = DATA_DIR.joinpath(file_name)
+    return pd.read_csv(file_path, index_col=0)
